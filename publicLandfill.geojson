@@ -1,0 +1,105 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [4.944252730757171, 44.3629876944604]
+            },
+            "properties": {
+                "LANDFILL_NAME": "<h1 class='title'>Déchèterie de Valréas</h1><div class='contact'><p class='address'>Chemin de l'Oulle 84600 VALREAS</p><p class='phone'>04 90 35 01 52</p><p class='website'>http://cceppg.fr</p></div><div class='desription'><h3>Modalités d'accès :</h3><p>Carte réalisable à la déchèterie directement.Prévoir un justificatif d’activité et un justificatif de siège social sur la communauté de communes Enclave des Papes-Pays de Grignan.</p></div><table><thead><tr><th>L</th><th>M</th><th>M</th><th>J</th><th>V</th><th>S</th><th>D</th></tr></thead><tbody><tr><td>8h30 - 12h</td><td>8h30 - 12h</td><td>8h30 - 12h</td><td>8h30 - 12h</td><td>8h30 - 12h</td><td>8h30 - 12h</td><td>8h30 - 12h</td></tr><tr><td>14h - 18h</td><td>14h - 18h</td><td>14h - 18h</td><td>14h - 18h</td><td>14h - 18h</td><td>14h - 18h</td><td>14h - 18h</td></tr></tbody></table> ",
+
+                "LANDFILL_HOURS_SUMMER": [
+                    "7h30 - 13h15",
+                    "7h30 - 13h15",
+                    "7h30 - 13h15",
+                    "7h30 - 13h15",
+                    "7h30 - 13h15",
+                    "7h30 - 13h15"
+                ],
+                "AUTHORIZED_WASTE": [
+                    "Bois",
+                    "Cartons",
+                    "Déchets verts",
+                    "Encombrants",
+                    "Ferrailles",
+                    "Gravats",
+                    "Piles"
+                ],
+                "FORBIDDEN_WASTE": [
+                    "Accumulateurs",
+                    "Boues des stations d’épuration",
+                    "Bouteilles de gaz",
+                    "Cadavres d’animaux",
+                    "Cendres",
+                    "Déchets amiantés",
+                    "Déchets d’abattoirs",
+                    "Déchets d’activités de soins",
+                    "Déchets industriels",
+                    "Déchets putrescibles",
+                    "Eléments mécaniques de véhicule",
+                    "Extincteurs",
+                    "Gravats en quantité importante des professionnels",
+                    "Médicaments",
+                    "Ordures ménagères",
+                    "Pneumatiques poids lourds",
+                    "Produits instables"
+                ]
+            },
+            "id": 0
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [4.73739, 44.30538493999541]
+            },
+            "properties": {
+                "LANDFILL_NAME": "Déchèterie de Bollène",
+                "LANDFILL_ADDRESS": "Rd243 Z.I Les Sactars 84500 BOLLENE",
+                "LANDFILL_PHONE": "04 90 40 22 40",
+                "LANDFILL_WEBSITE": "https://ccrlp.fr",
+                "LANDFILL_ACCESS": "Modalités d'accès :",
+                "LANDFILL_DESCRIPTION": "Présenter une pièce d'identité et un extrait de Kbis.",
+                "LANDFILL_HOURS_MORNING": [
+                    "8h30 - 12h",
+                    "8h30 - 12h",
+                    "8h30 - 12h",
+                    "8h30 - 12h",
+                    "8h30 - 12h",
+                    "8h30 - 12h"
+                ],
+                "LANFILL_HOURS_AFTERNOON": [
+                    "13h30 - 17h",
+                    "13h30 - 17h",
+                    "13h30 - 17h",
+                    "13h30 - 17h",
+                    "13h30 - 17h",
+                    "13h30 - 17h"
+                ],
+                "LANDFILL_HOURS_SUMMER": null,
+                "AUTHORIZED_WASTE": [
+                    "Accumulateurs",
+                    "Appareils électroménagers",
+                    "Batteries",
+                    "Bois",
+                    "Cartons",
+                    "DDM",
+                    "DEEE",
+                    "Déchets verts",
+                    "Ecrans",
+                    "Gravats",
+                    "Huiles de fritures",
+                    "Huiles de vidange",
+                    "Métaux",
+                    "Piles",
+                    "Pneus",
+                    "Tout venant"
+                ],
+                "FORBIDDEN_WASTE": ["Ampoules", "Déchets non cités"]
+            },
+            "id": 1
+        }
+    ]
+}
