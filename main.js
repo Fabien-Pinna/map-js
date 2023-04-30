@@ -60,6 +60,7 @@ publicLandfill.forEach(landfill => {
     const headerRow = table.createTHead()
     const morningRow = document.createElement('tr')
     const afternoonRow = document.createElement('tr')
+    const summerRow = document.createElement('tr')
 
     // The header
     const headers = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
@@ -85,11 +86,21 @@ publicLandfill.forEach(landfill => {
     })
     table.appendChild(afternoonRow)
 
+    landfill.HOURS_SUMMER.forEach(summerHour => {
+        if (landfill.HOURS_SUMMER === null) {
+            return
+        }
+        const summer = document.createElement('td')
+        summer.textContent = summerHour
+        summerRow.appendChild(summer)
+    })
+    table.appendChild(summerRow)
+
     scheduleBox.appendChild(table)
 
-    popup.appendChild(scheduleBox)
     popup.appendChild(addressBox)
     popup.appendChild(descriptionBox)
+    popup.appendChild(scheduleBox)
     document.body.appendChild(popup)
 })
 

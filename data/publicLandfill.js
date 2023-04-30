@@ -16,7 +16,7 @@ const publicLandfill = [
             '7h30 - 13h15',
             '8h30 - 12h',
             '8h30 - 12h',
-            '- - -',
+            'X',
         ],
         HOURS_AFTERNOON: [
             '14h - 18h',
@@ -25,7 +25,7 @@ const publicLandfill = [
             '14h - 18h',
             '14h - 18h',
             '14h - 18h',
-            '- - -',
+            'X',
         ],
         HOURS_SUMMER: [
             '7h30 - 13h15',
@@ -34,7 +34,7 @@ const publicLandfill = [
             '7h30 - 13h15',
             '7h30 - 13h15',
             '7h30 - 13h15',
-            '- - -',
+            'X',
         ],
         AUTHORIZED_WASTE: [
             'Bois',
@@ -81,7 +81,7 @@ const publicLandfill = [
             '8h30 - 12h',
             '8h30 - 12h',
             '8h30 - 12h',
-            '- - -',
+            'X',
         ],
         HOURS_AFTERNOON: [
             '13h30 - 17h',
@@ -90,7 +90,7 @@ const publicLandfill = [
             '13h30 - 17h',
             '13h30 - 17h',
             '13h30 - 17h',
-            '- - -',
+            'X',
         ],
         HOURS_SUMMER: null,
         AUTHORIZED_WASTE: [
