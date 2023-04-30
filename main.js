@@ -21,25 +21,33 @@ publicLandfill.forEach(landfill => {
     addressBox.classList.add('box_address')
 
     // Create a heading for the landfill name
-    const landfillHeading = document.createElement('h1')
-    landfillHeading.textContent = landfill.NAME
-    popup.appendChild(landfillHeading)
+    if (landfill.HOURS_AFTERNOON != null) {
+        const landfillHeading = document.createElement('h1')
+        landfillHeading.textContent = landfill.NAME
+        popup.appendChild(landfillHeading)
+    }
 
     // Create a paragraph for the landfill address
-    const address = document.createElement('p')
-    address.textContent = `Adresse : ${landfill.ADDRESS}`
-    addressBox.appendChild(address)
+    if (landfill.ADDRESS != null) {
+        const address = document.createElement('p')
+        address.textContent = `Adresse : ${landfill.ADDRESS}`
+        addressBox.appendChild(address)
+    }
 
     // Create a paragraph for the landfill phone number
-    const phone = document.createElement('p')
-    phone.textContent = `Téléphone : ${landfill.PHONE}`
-    addressBox.appendChild(phone)
+    if (landfill.PHONE != null) {
+        const phone = document.createElement('p')
+        phone.textContent = `Téléphone : ${landfill.PHONE}`
+        addressBox.appendChild(phone)
+    }
 
     // Create a link for the landfill website
-    const website = document.createElement('a')
-    website.href = landfill.WEBSITE
-    website.textContent = 'Site web'
-    addressBox.appendChild(website)
+    if (landfill.WEBSITE != null) {
+        const website = document.createElement('a')
+        website.href = landfill.WEBSITE
+        website.textContent = 'Site web'
+        addressBox.appendChild(website)
+    }
 
     const descriptionBox = document.createElement('div')
     descriptionBox.classList.add('box_description')
@@ -48,9 +56,11 @@ publicLandfill.forEach(landfill => {
     title.textContent = "Modalités d'accès :"
     descriptionBox.appendChild(title)
 
-    const description = document.createElement('p')
-    description.textContent = landfill.DESCRIPTION
-    descriptionBox.appendChild(description)
+    if (landfill.DESCRIPTION != null) {
+        const description = document.createElement('p')
+        description.textContent = landfill.DESCRIPTION
+        descriptionBox.appendChild(description)
+    }
 
     const scheduleBox = document.createElement('div')
     scheduleBox.classList.add('box_schedule')
@@ -72,36 +82,75 @@ publicLandfill.forEach(landfill => {
     table.appendChild(headerRow)
 
     // The Body
-    landfill.HOURS_MORNING.forEach(morningHour => {
-        const morning = document.createElement('td')
-        morning.textContent = morningHour
-        morningRow.appendChild(morning)
-    })
-    table.appendChild(morningRow)
+    if (landfill.HOURS_MORNING != null) {
+        landfill.HOURS_MORNING.forEach(morningHour => {
+            const morning = document.createElement('td')
+            morning.textContent = morningHour
+            morningRow.appendChild(morning)
+        })
+        table.appendChild(morningRow)
+    }
 
-    landfill.HOURS_AFTERNOON.forEach(afternoonHour => {
-        const afternoon = document.createElement('td')
-        afternoon.textContent = afternoonHour
-        afternoonRow.appendChild(afternoon)
-    })
-    table.appendChild(afternoonRow)
+    if (landfill.HOURS_AFTERNOON != null) {
+        landfill.HOURS_AFTERNOON.forEach(afternoonHour => {
+            const afternoon = document.createElement('td')
+            afternoon.textContent = afternoonHour
+            afternoonRow.appendChild(afternoon)
+        })
+        table.appendChild(afternoonRow)
+    }
 
-    landfill.HOURS_SUMMER.forEach(summerHour => {
-        if (landfill.HOURS_SUMMER === null) {
-            return
-        }
-        const summer = document.createElement('td')
-        summer.textContent = summerHour
-        summerRow.appendChild(summer)
-    })
-    table.appendChild(summerRow)
+    if (landfill.HOURS_SUMMER != null) {
+        landfill.HOURS_SUMMER.forEach(summerHour => {
+            const summer = document.createElement('td')
+            summer.textContent = summerHour
+            summerRow.appendChild(summer)
+        })
+        table.appendChild(summerRow)
+    }
+
+    const wasteBox = document.createElement('div')
+    wasteBox.classList.add('box_waste')
+
+    if (landfill.AUTHORIZED_WASTE != null) {
+        const authorizedWasteBox = document.createElement('div')
+        authorizedWasteBox.classList.add('box_waste_authorized')
+        const authorizedWasteTitle = document.createElement('h3')
+        authorizedWasteTitle.textContent = 'Déchets autorisés'
+        const authorizedWasteList = document.createElement('ul')
+
+        landfill.AUTHORIZED_WASTE.forEach(authorizedWaste => {
+            const authorizedWasteItem = document.createElement('li')
+            authorizedWasteItem.textContent = authorizedWaste
+            authorizedWasteList.appendChild(authorizedWasteItem)
+        })
+        wasteBox.appendChild(authorizedWasteBox)
+        authorizedWasteBox.appendChild(authorizedWasteTitle)
+        authorizedWasteBox.appendChild(authorizedWasteList)
+    }
+
+    if (landfill.FORBIDDEN_WASTE != null) {
+        const forbiddenWasteBox = document.createElement('div')
+        forbiddenWasteBox.classList.add('box_waste_forbidden')
+        const forbiddenWasteTitle = document.createElement('h3')
+        forbiddenWasteTitle.textContent = 'Déchets refusés'
+        const forbiddenWasteList = document.createElement('ul')
+
+        landfill.FORBIDDEN_WASTE.forEach(forbiddenWaste => {
+            const forbiddenWasteItem = document.createElement('li')
+            forbiddenWasteItem.textContent = forbiddenWaste
+            forbiddenWasteList.appendChild(forbiddenWasteItem)
+        })
+        wasteBox.appendChild(forbiddenWasteBox)
+        forbiddenWasteBox.appendChild(forbiddenWasteTitle)
+        forbiddenWasteBox.appendChild(forbiddenWasteList)
+    }
 
     scheduleBox.appendChild(table)
 
     popup.appendChild(addressBox)
     popup.appendChild(descriptionBox)
     popup.appendChild(scheduleBox)
+    popup.appendChild(wasteBox)
     document.body.appendChild(popup)
 })
-
-// Add the popup to the page
