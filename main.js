@@ -1,60 +1,96 @@
+import publicLandfill from './data/publicLandfill.js'
+
 mapboxgl.accessToken =
     'pk.eyJ1IjoiZmFiaW9sb2NvIiwiYSI6ImNsZHljNDdrYzBwcjEzdnFqNWE3ZHNnd2wifQ.INwO8p9TjPluZ-i5LxDp6w'
-const map = new mapboxgl.Map({
-    container: 'map',
-    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-    style: 'mapbox://styles/fabioloco/clgw2jxrm008801qycujpczwb',
-    center: [5, 44],
-    zoom: 8.9,
+
+// Generate a unique id for popups
+let uniqueID = () => {
+    return `popup_${Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1)}`
+}
+
+// Loop in the datas for retrieving all we need
+publicLandfill.forEach(landfill => {
+    // Create the popup
+    const popup = document.createElement('div')
+    popup.classList.add('popup')
+    popup.id = uniqueID()
+
+    const addressBox = document.createElement('div')
+    addressBox.classList.add('box_address')
+
+    // Create a heading for the landfill name
+    const landfillHeading = document.createElement('h1')
+    landfillHeading.textContent = landfill.NAME
+    popup.appendChild(landfillHeading)
+
+    // Create a paragraph for the landfill address
+    const address = document.createElement('p')
+    address.textContent = `Adresse : ${landfill.ADDRESS}`
+    addressBox.appendChild(address)
+
+    // Create a paragraph for the landfill phone number
+    const phone = document.createElement('p')
+    phone.textContent = `Téléphone : ${landfill.PHONE}`
+    addressBox.appendChild(phone)
+
+    // Create a link for the landfill website
+    const website = document.createElement('a')
+    website.href = landfill.WEBSITE
+    website.textContent = 'Site web'
+    addressBox.appendChild(website)
+
+    const descriptionBox = document.createElement('div')
+    descriptionBox.classList.add('box_description')
+
+    const title = document.createElement('h3')
+    title.textContent = "Modalités d'accès :"
+    descriptionBox.appendChild(title)
+
+    const description = document.createElement('p')
+    description.textContent = landfill.DESCRIPTION
+    descriptionBox.appendChild(description)
+
+    const scheduleBox = document.createElement('div')
+    scheduleBox.classList.add('box_schedule')
+
+    // Create the table for the schedule
+    const table = document.createElement('table')
+    const headerRow = table.createTHead()
+    const morningRow = document.createElement('tr')
+    const afternoonRow = document.createElement('tr')
+
+    // The header
+    const headers = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+    headers.forEach(headerText => {
+        const header = document.createElement('th')
+        header.textContent = headerText
+        headerRow.appendChild(header)
+    })
+    table.appendChild(headerRow)
+
+    // The Body
+    landfill.HOURS_MORNING.forEach(morningHour => {
+        const morning = document.createElement('td')
+        morning.textContent = morningHour
+        morningRow.appendChild(morning)
+    })
+    table.appendChild(morningRow)
+
+    landfill.HOURS_AFTERNOON.forEach(afternoonHour => {
+        const afternoon = document.createElement('td')
+        afternoon.textContent = afternoonHour
+        afternoonRow.appendChild(afternoon)
+    })
+    table.appendChild(afternoonRow)
+
+    scheduleBox.appendChild(table)
+
+    popup.appendChild(scheduleBox)
+    popup.appendChild(addressBox)
+    popup.appendChild(descriptionBox)
+    document.body.appendChild(popup)
 })
 
-map.on('load', () => {
-    map.addSource('places', {
-        // This GeoJSON contains features that include an "icon"
-        // property. The value of the "icon" property corresponds
-        // to an image in the Mapbox Streets style's sprite.
-        type: 'geojson',
-        data: './publicLandfill.geojson',
-    })
-    // Add a layer showing the places.
-    map.addLayer({
-        id: 'places',
-        type: 'symbol',
-        source: 'places',
-        layout: {
-            'icon-image': 'markerrr',
-            'icon-allow-overlap': true,
-        },
-    })
-
-    // When a click event occurs on a feature in the places layer, open a popup at the
-    // location of the feature, with description HTML from its properties.
-    map.on('click', 'places', e => {
-        // Copy coordinates array.
-        const coordinates = e.features[0].geometry.coordinates.slice()
-        const name = e.features[0].properties.LANDFILL_NAME
-        const description = e.features[0].properties.LANDFILL_DESCRIPTION
-
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360
-        }
-
-        new mapboxgl.Popup({ className: 'details-popup' })
-            .setLngLat(coordinates)
-            .setHTML(name)
-            .addTo(map)
-    })
-
-    // Change the cursor to a pointer when the mouse is over the places layer.
-    map.on('mouseenter', 'places', () => {
-        map.getCanvas().style.cursor = 'pointer'
-    })
-
-    // Change it back to a pointer when it leaves.
-    map.on('mouseleave', 'places', () => {
-        map.getCanvas().style.cursor = ''
-    })
-})
+// Add the popup to the page
