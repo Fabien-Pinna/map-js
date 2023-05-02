@@ -10,6 +10,15 @@ body {
     width: 100%;
 }
 
-.details-popup h1 {
-    color: #00ffff;
+.marker {
+    background-image: url('https://docs.mapbox.com/help/demos/custom-markers-gl-js/mapbox-icon.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.mapboxgl-popup {
+    max-width: 500px !important;
+    max-height: 500px;
 }

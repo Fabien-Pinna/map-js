@@ -10,11 +10,22 @@ let uniqueID = () => {
         .substring(1)}`
 }
 
+const map = new mapboxgl.Map({
+    container: 'map',
+    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [5, 44],
+    zoom: 8.9,
+})
+
 // Loop in the datas for retrieving all we need
 publicLandfill.forEach(landfill => {
+    const marker = document.createElement('div')
+    marker.className = 'marker'
+
     // Create the popup
     const popup = document.createElement('div')
-    popup.classList.add('popup')
+    popup.className = 'popup'
     popup.id = uniqueID()
 
     const addressBox = document.createElement('div')
@@ -146,11 +157,15 @@ publicLandfill.forEach(landfill => {
         forbiddenWasteBox.appendChild(forbiddenWasteList)
     }
 
+    new mapboxgl.Marker(marker)
+        .setLngLat(landfill.COORDINATES)
+        .setPopup(new mapboxgl.Popup().setDOMContent(popup))
+        .addTo(map)
+
     scheduleBox.appendChild(table)
 
     popup.appendChild(addressBox)
     popup.appendChild(descriptionBox)
     popup.appendChild(scheduleBox)
     popup.appendChild(wasteBox)
-    document.body.appendChild(popup)
 })
