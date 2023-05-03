@@ -10,15 +10,26 @@ body {
     width: 100%;
 }
 
-.marker {
-    background-image: url('https://docs.mapbox.com/help/demos/custom-markers-gl-js/mapbox-icon.png');
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.marker_public {
+    background: no-repeat content-box url('./Map_marker.svg');
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
 }
+
 .mapboxgl-popup {
     max-width: 500px !important;
     max-height: 500px;
+}
+
+.mapboxgl-popup h1 {
+    text-align: center;
+}
+
+.mapboxgl-popup .box_informations {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
 }

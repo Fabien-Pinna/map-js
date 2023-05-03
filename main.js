@@ -10,6 +10,7 @@ let uniqueID = () => {
         .substring(1)}`
 }
 
+// Create the map
 const map = new mapboxgl.Map({
     container: 'map',
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
@@ -18,37 +19,54 @@ const map = new mapboxgl.Map({
     zoom: 8.9,
 })
 
+// Geolocation control added
+map.addControl(
+    new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true,
+        },
+        trackUserLocation: true,
+        showUserHeading: true,
+    })
+)
+
+// Create the markers and the popups
 // Loop in the datas for retrieving all we need
 publicLandfill.forEach(landfill => {
     const marker = document.createElement('div')
-    marker.className = 'marker'
+    marker.className = 'marker_public'
 
     // Create the popup
     const popup = document.createElement('div')
-    popup.className = 'popup'
+    popup.className = 'popup_public'
     popup.id = uniqueID()
 
-    const addressBox = document.createElement('div')
-    addressBox.classList.add('box_address')
-
     // Create a heading for the landfill name
-    if (landfill.HOURS_AFTERNOON != null) {
+    if (landfill.NAME != null) {
         const landfillHeading = document.createElement('h1')
         landfillHeading.textContent = landfill.NAME
         popup.appendChild(landfillHeading)
     }
 
+    // A box for the landfill informations
+    const informationsBox = document.createElement('div')
+    informationsBox.className = 'box_informations'
+    popup.appendChild(informationsBox)
+
+    const addressBox = document.createElement('div')
+    addressBox.classList.add('box_address')
+
     // Create a paragraph for the landfill address
     if (landfill.ADDRESS != null) {
         const address = document.createElement('p')
-        address.textContent = `Adresse : ${landfill.ADDRESS}`
+        address.textContent = landfill.ADDRESS
         addressBox.appendChild(address)
     }
 
     // Create a paragraph for the landfill phone number
     if (landfill.PHONE != null) {
         const phone = document.createElement('p')
-        phone.textContent = `Téléphone : ${landfill.PHONE}`
+        phone.textContent = landfill.PHONE
         addressBox.appendChild(phone)
     }
 
@@ -59,6 +77,7 @@ publicLandfill.forEach(landfill => {
         website.textContent = 'Site web'
         addressBox.appendChild(website)
     }
+    informationsBox.appendChild(addressBox)
 
     const descriptionBox = document.createElement('div')
     descriptionBox.classList.add('box_description')
@@ -72,6 +91,7 @@ publicLandfill.forEach(landfill => {
         description.textContent = landfill.DESCRIPTION
         descriptionBox.appendChild(description)
     }
+    informationsBox.appendChild(descriptionBox)
 
     const scheduleBox = document.createElement('div')
     scheduleBox.classList.add('box_schedule')
@@ -120,6 +140,7 @@ publicLandfill.forEach(landfill => {
         table.appendChild(summerRow)
     }
 
+    // The wastes types list
     const wasteBox = document.createElement('div')
     wasteBox.classList.add('box_waste')
 
@@ -157,6 +178,7 @@ publicLandfill.forEach(landfill => {
         forbiddenWasteBox.appendChild(forbiddenWasteList)
     }
 
+    // The markers with their popups added
     new mapboxgl.Marker(marker)
         .setLngLat(landfill.COORDINATES)
         .setPopup(new mapboxgl.Popup().setDOMContent(popup))
@@ -164,8 +186,7 @@ publicLandfill.forEach(landfill => {
 
     scheduleBox.appendChild(table)
 
-    popup.appendChild(addressBox)
-    popup.appendChild(descriptionBox)
+    popup.appendChild(informationsBox)
     popup.appendChild(scheduleBox)
     popup.appendChild(wasteBox)
 })
