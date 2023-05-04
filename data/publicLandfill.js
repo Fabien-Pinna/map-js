@@ -4,7 +4,8 @@ const publicLandfill = [
         COLOR: '#21a548',
         COORDINATES: [4.944252730757171, 44.3629876944604],
         NAME: 'Déchèterie de Valréas',
-        ADDRESS: "Chemin de l'Oulle 84600 VALREAS",
+        ADDRESS: "Chemin de l'Oulle",
+        CITY: '84600 VALREAS',
         PHONE: '04 90 35 01 52',
         WEBSITE: 'http://cceppg.fr',
         DESCRIPTION:
@@ -27,7 +28,7 @@ const publicLandfill = [
             '14h - 18h',
             'X',
         ],
-        HOURS_SUMMER: [
+        HOURS_MORNING_SUMMER: [
             '7h30 - 13h15',
             '7h30 - 13h15',
             '7h30 - 13h15',
@@ -36,6 +37,7 @@ const publicLandfill = [
             '7h30 - 13h15',
             'X',
         ],
+        HOURS_INFORMATIONS: 'de Juillet à Août',
         AUTHORIZED_WASTE: [
             'Bois',
             'Cartons',

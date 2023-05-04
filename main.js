@@ -59,8 +59,17 @@ publicLandfill.forEach(landfill => {
     // Create a paragraph for the landfill address
     if (landfill.ADDRESS != null) {
         const address = document.createElement('p')
+        address.className = 'address'
         address.textContent = landfill.ADDRESS
         addressBox.appendChild(address)
+    }
+
+    // Create a paragraph for the landfill city
+    if (landfill.CITY != null) {
+        const city = document.createElement('p')
+        city.className = 'city'
+        city.textContent = landfill.CITY
+        addressBox.appendChild(city)
     }
 
     // Create a paragraph for the landfill phone number
@@ -100,8 +109,9 @@ publicLandfill.forEach(landfill => {
     const table = document.createElement('table')
     const headerRow = table.createTHead()
     const morningRow = document.createElement('tr')
+    const summerMorningRow = document.createElement('tr')
+    summerMorningRow.className = 'summer'
     const afternoonRow = document.createElement('tr')
-    const summerRow = document.createElement('tr')
 
     // The header
     const headers = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
@@ -122,6 +132,15 @@ publicLandfill.forEach(landfill => {
         table.appendChild(morningRow)
     }
 
+    if (landfill.HOURS_MORNING_SUMMER != null) {
+        landfill.HOURS_MORNING_SUMMER.forEach(summerMorningHour => {
+            const summerMorning = document.createElement('td')
+            summerMorning.textContent = summerMorningHour
+            summerMorningRow.appendChild(summerMorning)
+        })
+        table.appendChild(summerMorningRow)
+    }
+
     if (landfill.HOURS_AFTERNOON != null) {
         landfill.HOURS_AFTERNOON.forEach(afternoonHour => {
             const afternoon = document.createElement('td')
@@ -129,15 +148,6 @@ publicLandfill.forEach(landfill => {
             afternoonRow.appendChild(afternoon)
         })
         table.appendChild(afternoonRow)
-    }
-
-    if (landfill.HOURS_SUMMER != null) {
-        landfill.HOURS_SUMMER.forEach(summerHour => {
-            const summer = document.createElement('td')
-            summer.textContent = summerHour
-            summerRow.appendChild(summer)
-        })
-        table.appendChild(summerRow)
     }
 
     // The wastes types list
@@ -188,5 +198,13 @@ publicLandfill.forEach(landfill => {
 
     popup.appendChild(informationsBox)
     popup.appendChild(scheduleBox)
+    if (landfill.HOURS_INFORMATIONS != null) {
+        const hoursInformationsBox = document.createElement('div')
+        hoursInformationsBox.className = 'hours_informations_box'
+        const hoursInformations = document.createElement('p')
+        hoursInformations.textContent = landfill.HOURS_INFORMATIONS
+        hoursInformationsBox.appendChild(hoursInformations)
+        popup.appendChild(hoursInformationsBox)
+    }
     popup.appendChild(wasteBox)
 })

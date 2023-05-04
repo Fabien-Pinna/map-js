@@ -22,14 +22,75 @@ body {
     max-height: 500px;
 }
 
-.mapboxgl-popup h1 {
+h1 {
     text-align: center;
 }
 
-.mapboxgl-popup .box_informations {
+.box_informations {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 10px;
     grid-row-gap: 0px;
+}
+
+.address {
+    margin-bottom: 0;
+}
+
+.city {
+    margin-top: 0;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
+th,
+td {
+    border: 1px solid black;
+}
+
+.summer {
+    color: blue;
+}
+
+.hours_informations_box {
+    text-align: center;
+    color: blue;
+}
+
+.box_waste {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.box_waste_authorized,
+.box_waste_forbidden {
+    width: 50%;
+    text-align: center;
+    color: white;
+}
+
+.box_waste_authorized ul,
+.box_waste_forbidden ul {
+    list-style-type: none;
+    padding: 0;
+    padding-inline-start: 0;
+    border-top: 1.5px solid white;
+}
+
+.box_waste_authorized li:first-child,
+.box_waste_forbidden li:first-child {
+    margin-top: 1rem;
+}
+
+.box_waste_authorized {
+    background-color: rgb(38, 121, 38);
+    border-right: 1.5px solid white;
+}
+
+.box_waste_forbidden {
+    background-color: crimson;
 }
