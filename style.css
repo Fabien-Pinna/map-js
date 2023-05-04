@@ -18,8 +18,8 @@ body {
 }
 
 .mapboxgl-popup {
-    max-width: 500px !important;
-    max-height: 500px;
+    max-width: 600px !important;
+    max-height: 600px;
 }
 
 h1 {
@@ -49,16 +49,30 @@ table {
 }
 th,
 td {
-    border: 1px solid black;
+    border: 3px solid white;
+    width: 2rem;
 }
 
-.summer {
-    color: blue;
+th {
+    background-color: #ffd699;
+}
+
+td {
+    background-color: #ffebcd;
+}
+
+.morning_hours {
+    border-bottom: none;
+}
+
+.morning_hours_summer {
+    border-top: none;
+    color: #3186d6;
 }
 
 .hours_informations_box {
     text-align: center;
-    color: blue;
+    color: #3186d6;
 }
 
 .box_waste {
@@ -87,10 +101,20 @@ td {
 }
 
 .box_waste_authorized {
-    background-color: rgb(38, 121, 38);
+    background-color: #32620e;
     border-right: 1.5px solid white;
 }
 
+.box_waste_authorized ul {
+    background-color: #9dcd5a;
+    height: 88%;
+}
+
 .box_waste_forbidden {
-    background-color: crimson;
+    background-color: #bc1823;
+}
+
+.box_waste_forbidden ul {
+    background-color: #ff6949;
+    height: 88%;
 }

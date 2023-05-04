@@ -30,6 +30,20 @@ map.addControl(
     })
 )
 
+const renderIcon = node => {
+    const iconSvg = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'svg'
+    )
+    const iconPath = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+    iconSvg.appendChild(iconPath)
+
+    return node.appendChild(iconSvg)
+}
+
 // Create the markers and the popups
 // Loop in the datas for retrieving all we need
 publicLandfill.forEach(landfill => {
@@ -61,6 +75,7 @@ publicLandfill.forEach(landfill => {
         const address = document.createElement('p')
         address.className = 'address'
         address.textContent = landfill.ADDRESS
+        renderIcon(address)
         addressBox.appendChild(address)
     }
 
@@ -110,8 +125,8 @@ publicLandfill.forEach(landfill => {
     const headerRow = table.createTHead()
     const morningRow = document.createElement('tr')
     const summerMorningRow = document.createElement('tr')
-    summerMorningRow.className = 'summer'
     const afternoonRow = document.createElement('tr')
+    const summerAfternoonRow = document.createElement('tr')
 
     // The header
     const headers = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
@@ -126,6 +141,7 @@ publicLandfill.forEach(landfill => {
     if (landfill.HOURS_MORNING != null) {
         landfill.HOURS_MORNING.forEach(morningHour => {
             const morning = document.createElement('td')
+            morning.className = 'morning_hours'
             morning.textContent = morningHour
             morningRow.appendChild(morning)
         })
@@ -135,6 +151,7 @@ publicLandfill.forEach(landfill => {
     if (landfill.HOURS_MORNING_SUMMER != null) {
         landfill.HOURS_MORNING_SUMMER.forEach(summerMorningHour => {
             const summerMorning = document.createElement('td')
+            summerMorning.className = 'morning_hours_summer'
             summerMorning.textContent = summerMorningHour
             summerMorningRow.appendChild(summerMorning)
         })
@@ -144,10 +161,21 @@ publicLandfill.forEach(landfill => {
     if (landfill.HOURS_AFTERNOON != null) {
         landfill.HOURS_AFTERNOON.forEach(afternoonHour => {
             const afternoon = document.createElement('td')
+            afternoon.className = 'afternoon_hours'
             afternoon.textContent = afternoonHour
             afternoonRow.appendChild(afternoon)
         })
         table.appendChild(afternoonRow)
+    }
+
+    if (landfill.HOURS_AFTERNOON_SUMMER != null) {
+        landfill.HOURS_AFTERNOON_SUMMER.forEach(summerAfternoonHour => {
+            const summerAfternoon = document.createElement('td')
+            summerAfternoon.className = 'afternoon_hours_summer'
+            summerAfternoon.textContent = summerAfternoonHour
+            summerAfternoonRow.appendChild(summerAfternoon)
+        })
+        table.appendChild(summerAfternoonRow)
     }
 
     // The wastes types list
