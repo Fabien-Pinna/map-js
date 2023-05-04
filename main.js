@@ -30,18 +30,35 @@ map.addControl(
     })
 )
 
-const renderIcon = node => {
-    const iconSvg = document.createElementNS(
+// Create the DOM elements for the SVG icons
+// Marker
+const renderIconMarker = node => {
+    const iconMarker = document.createElementNS(
         'http://www.w3.org/2000/svg',
         'svg'
     )
-    const iconPath = document.createElementNS(
+    const iconPath_1 = document.createElementNS(
         'http://www.w3.org/2000/svg',
         'path'
     )
-    iconSvg.appendChild(iconPath)
+    const iconPath_2 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
 
-    return node.appendChild(iconSvg)
+    iconMarker.classList.add('icon_marker')
+    iconPath_1.setAttribute(
+        'd',
+        'M20.82,13.05a10.93,10.93,0,0,0,.29-2.49A10.56,10.56,0,1,0,0,10.56a10.41,10.41,0,0,0,.3,2.49,15.69,15.69,0,0,0,1.15,4.11c1,2.18,5.4,9.37,7.41,12.65-2.71.35-4,1.51-4,2.61,0,1.31,1.77,2.71,5.67,2.71s5.66-1.4,5.66-2.71c0-1.1-1.25-2.26-4-2.61,2-3.28,6.37-10.47,7.4-12.65A15.66,15.66,0,0,0,20.82,13.05ZM14.59,32.42c-.11.31-1.47,1.08-4,1.08s-4-.79-4-1.07c.07-.27,1.19-.94,3.29-1.07l0,.09a.81.81,0,0,0,1.39,0l.05-.09C13.38,31.49,14.49,32.14,14.59,32.42ZM19.22,12.7a.13.13,0,0,1,0,.06,14.51,14.51,0,0,1-1,3.7c-1.05,2.2-5.83,10.05-7.63,13-1.81-2.95-6.59-10.8-7.64-13a14.94,14.94,0,0,1-1-3.7.13.13,0,0,0,0-.06,9.08,9.08,0,0,1-.26-2.14,8.93,8.93,0,1,1,17.85,0A8.59,8.59,0,0,1,19.22,12.7Z'
+    )
+    iconPath_2.setAttribute(
+        'd',
+        'M10.56,4.62a5.67,5.67,0,1,0,5.66,5.67A5.67,5.67,0,0,0,10.56,4.62Zm0,9.7a4,4,0,1,1,4-4A4,4,0,0,1,10.56,14.32Z'
+    )
+    iconMarker.appendChild(iconPath_1)
+    iconMarker.appendChild(iconPath_2)
+
+    return node.appendChild(iconMarker)
 }
 
 // Create the markers and the popups
@@ -67,16 +84,24 @@ publicLandfill.forEach(landfill => {
     informationsBox.className = 'box_informations'
     popup.appendChild(informationsBox)
 
+    const contactBox = document.createElement('div')
+    contactBox.classList.add('contact')
     const addressBox = document.createElement('div')
     addressBox.classList.add('box_address')
+    const addressTextBox = document.createElement('div')
+    addressTextBox.classList.add('box_address_text')
+    const phoneBox = document.createElement('div')
+    phoneBox.classList.add('box_phone')
+    const websiteBox = document.createElement('div')
+    websiteBox.classList.add('box_website')
+    renderIconMarker(addressBox)
 
     // Create a paragraph for the landfill address
     if (landfill.ADDRESS != null) {
         const address = document.createElement('p')
         address.className = 'address'
         address.textContent = landfill.ADDRESS
-        renderIcon(address)
-        addressBox.appendChild(address)
+        addressTextBox.appendChild(address)
     }
 
     // Create a paragraph for the landfill city
@@ -84,14 +109,15 @@ publicLandfill.forEach(landfill => {
         const city = document.createElement('p')
         city.className = 'city'
         city.textContent = landfill.CITY
-        addressBox.appendChild(city)
+        addressTextBox.appendChild(city)
     }
+    addressBox.appendChild(addressTextBox)
 
     // Create a paragraph for the landfill phone number
     if (landfill.PHONE != null) {
         const phone = document.createElement('p')
         phone.textContent = landfill.PHONE
-        addressBox.appendChild(phone)
+        phoneBox.appendChild(phone)
     }
 
     // Create a link for the landfill website
@@ -99,9 +125,12 @@ publicLandfill.forEach(landfill => {
         const website = document.createElement('a')
         website.href = landfill.WEBSITE
         website.textContent = 'Site web'
-        addressBox.appendChild(website)
+        websiteBox.appendChild(website)
     }
-    informationsBox.appendChild(addressBox)
+    contactBox.appendChild(addressBox)
+    contactBox.appendChild(phoneBox)
+    contactBox.appendChild(websiteBox)
+    informationsBox.appendChild(contactBox)
 
     const descriptionBox = document.createElement('div')
     descriptionBox.classList.add('box_description')

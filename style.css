@@ -34,12 +34,18 @@ h1 {
     grid-row-gap: 0px;
 }
 
-.address {
-    margin-bottom: 0;
+.box_address {
+    display: flex;
 }
 
+.icon_marker {
+    width: 1.5rem;
+    height: 3rem;
+    align-self: center;
+}
+.address,
 .city {
-    margin-top: 0;
+    margin: 0;
 }
 
 table {
