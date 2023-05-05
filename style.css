@@ -34,18 +34,38 @@ h1 {
     grid-row-gap: 0px;
 }
 
-.box_address {
+.box_address,
+.box_phone,
+.box_website {
     display: flex;
+    align-items: center;
 }
 
-.icon_marker {
-    width: 1.5rem;
+/* .icon_marker,
+.icon_phone,
+.icon_website {
+    width: 2.5rem;
     height: 3rem;
-    align-self: center;
 }
+.icon_marker {
+    padding-left: 1.4rem;
+    margin-right: 0;
+}
+.icon_phone,
+.icon_website {
+    margin-right: 0.5rem;
+    padding: 1rem 0 0 1rem;
+} */
+p,
 .address,
 .city {
     margin: 0;
+}
+a {
+    text-decoration: none;
+}
+a:focus-visible {
+    outline: none;
 }
 
 table {
