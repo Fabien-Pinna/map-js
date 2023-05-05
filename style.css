@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'glacial-indifference';
+    src: url('./fonts/glacial-indifference/GlacialIndifference-Regular.otf')
+        format('opentype');
+}
+
+* {
+    font-family: 'glacial-indifference', sans-serif;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -22,16 +32,44 @@ body {
     max-height: 600px;
 }
 
+.mapboxgl-popup-content {
+    box-shadow: 10px 10px 15px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background: #f4f3f3;
+}
+
 h1 {
+    margin-bottom: 2rem;
     text-align: center;
 }
 
 .box_informations {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 0px;
+    grid-template-columns: 0.7fr 1fr;
+    font-size: 1.2em;
+}
+
+.box_contact,
+.box_description {
+    background-color: #f4f3f3;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+    margin: 0rem 1rem 1rem 1rem;
+}
+
+.box_contact {
+    padding: 1rem 0 1rem 1rem;
+    margin: 0rem 1rem 1rem 0.5rem;
+}
+
+.box_description {
+    padding: 1rem;
+    margin: 0rem 0.5rem 1rem 1rem;
+}
+
+.box_description h3 {
+    text-decoration: underline;
+    margin-top: 0.5rem;
 }
 
 .box_address,
@@ -41,29 +79,25 @@ h1 {
     align-items: center;
 }
 
-/* .icon_marker,
+.icon_marker,
 .icon_phone,
 .icon_website {
+    margin: 0.5rem;
+    height: 2.5rem;
     width: 2.5rem;
-    height: 3rem;
 }
-.icon_marker {
-    padding-left: 1.4rem;
-    margin-right: 0;
-}
-.icon_phone,
-.icon_website {
-    margin-right: 0.5rem;
-    padding: 1rem 0 0 1rem;
-} */
+
 p,
 .address,
 .city {
     margin: 0;
 }
+
 a {
+    color: #2a8eff;
     text-decoration: none;
 }
+
 a:focus-visible {
     outline: none;
 }
@@ -73,6 +107,7 @@ table {
     text-align: center;
     width: 100%;
 }
+
 th,
 td {
     border: 3px solid white;

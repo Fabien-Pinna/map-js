@@ -47,12 +47,13 @@ const renderIconMarker = node => {
     )
 
     iconMarker.classList.add('icon_marker')
-    iconMarker.setAttribute('viewBox', '-8 -1.5 38 38')
+    iconMarker.setAttribute('viewBox', '-10 -1.5 38 38')
     iconMarker.setAttribute('height', '50')
     iconMarker.setAttribute('width', '50')
-    iconMarker.setAttribute('preserveAspectRatio', 'xMidYMin meet')
-    iconMarker.setAttribute('x', '0')
-    iconMarker.setAttribute('y', '0')
+    iconMarker.setAttribute('stroke', '#98dc62')
+    iconMarker.setAttribute('fill', '#98dc62')
+    iconMarker.setAttribute('stroke-width', '1.5px')
+
     iconPath_1.setAttribute(
         'd',
         'M20.82,13.05a10.93,10.93,0,0,0,.29-2.49A10.56,10.56,0,1,0,0,10.56a10.41,10.41,0,0,0,.3,2.49,15.69,15.69,0,0,0,1.15,4.11c1,2.18,5.4,9.37,7.41,12.65-2.71.35-4,1.51-4,2.61,0,1.31,1.77,2.71,5.67,2.71s5.66-1.4,5.66-2.71c0-1.1-1.25-2.26-4-2.61,2-3.28,6.37-10.47,7.4-12.65A15.66,15.66,0,0,0,20.82,13.05ZM14.59,32.42c-.11.31-1.47,1.08-4,1.08s-4-.79-4-1.07c.07-.27,1.19-.94,3.29-1.07l0,.09a.81.81,0,0,0,1.39,0l.05-.09C13.38,31.49,14.49,32.14,14.59,32.42ZM19.22,12.7a.13.13,0,0,1,0,.06,14.51,14.51,0,0,1-1,3.7c-1.05,2.2-5.83,10.05-7.63,13-1.81-2.95-6.59-10.8-7.64-13a14.94,14.94,0,0,1-1-3.7.13.13,0,0,0,0-.06,9.08,9.08,0,0,1-.26-2.14,8.93,8.93,0,1,1,17.85,0A8.59,8.59,0,0,1,19.22,12.7Z'
@@ -91,9 +92,10 @@ const renderIconPhone = node => {
     iconPhone.setAttribute('viewBox', '-3.5 -3.5 38 38')
     iconPhone.setAttribute('height', '50')
     iconPhone.setAttribute('width', '50')
-    iconPhone.setAttribute('preserveAspectRatio', 'xMidYMin meet')
-    iconPhone.setAttribute('x', '0')
-    iconPhone.setAttribute('y', '0')
+    iconPhone.setAttribute('stroke', '#FFBC2F')
+    iconPhone.setAttribute('fill', '#FFBC2F')
+    iconPhone.setAttribute('stroke-width', '1.5px')
+
     iconPath_1.setAttribute(
         'd',
         'M1.93,6.28a3.49,3.49,0,0,0-.37.47A6,6,0,0,0,.15,12.31,25.45,25.45,0,0,0,22.78,32.78l.72,0A6.57,6.57,0,0,0,27,31.9a4.82,4.82,0,0,0,1.24-1l1-1.06a5.08,5.08,0,0,0-.36-7.17l-1.62-1.46a5.05,5.05,0,0,0-3.4-1.32A5.1,5.1,0,0,0,20,21.56l-1,1.07a5.35,5.35,0,0,0-.9,1.39,17.93,17.93,0,0,1-8.92-8.17,5.1,5.1,0,0,0,1.85-1.3l1-1.06a5.06,5.06,0,0,0-.36-7.17L10.06,4.85a5.08,5.08,0,0,0-7.17.36Zm1.93-.19a3.78,3.78,0,0,1,5.33-.27l1.62,1.47a3.78,3.78,0,0,1,.27,5.32l-1,1.07h0a3.79,3.79,0,0,1-1.7,1.08l-.29.08a.63.63,0,0,0-.41.37.62.62,0,0,0,0,.55l.14.27a19.18,19.18,0,0,0,10.19,9.35l.25.1a.65.65,0,0,0,.51,0,.71.71,0,0,0,.35-.39l.08-.25A3.8,3.8,0,0,1,20,23.5l1-1.06a3.77,3.77,0,0,1,5.32-.27l1.63,1.47A3.76,3.76,0,0,1,28.19,29l-1,1.07a3.83,3.83,0,0,1-.93.75,5.54,5.54,0,0,1-3.41.7A24.15,24.15,0,0,1,1.43,12.06a4.77,4.77,0,0,1,1-4.36l.06,0,0-.05.05-.07a3.57,3.57,0,0,1,.3-.38Z'
@@ -127,9 +129,9 @@ const renderIconWebsite = node => {
     iconWebsite.setAttribute('viewBox', '-3.5 -3.5 38 38')
     iconWebsite.setAttribute('height', '50')
     iconWebsite.setAttribute('width', '50')
-    iconWebsite.setAttribute('preserveAspectRatio', 'xMidYMin meet')
-    iconWebsite.setAttribute('x', '0')
-    iconWebsite.setAttribute('y', '0')
+    iconWebsite.setAttribute('stroke', '#7CBBFF')
+    iconWebsite.setAttribute('fill', '#7CBBFF')
+    iconWebsite.setAttribute('stroke-width', '1.5px')
 
     iconPath_1.setAttribute(
         'd',
@@ -165,7 +167,7 @@ publicLandfill.forEach(landfill => {
     popup.appendChild(informationsBox)
 
     const contactBox = document.createElement('div')
-    contactBox.classList.add('contact')
+    contactBox.classList.add('box_contact')
     const addressBox = document.createElement('div')
     addressBox.classList.add('box_address')
     const addressTextBox = document.createElement('div')
