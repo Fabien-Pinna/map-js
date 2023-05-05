@@ -13,6 +13,12 @@ body {
     padding: 0;
 }
 
+p,
+a,
+li {
+    font-size: 1.2em;
+}
+
 #map {
     position: absolute;
     top: 0;
@@ -46,7 +52,6 @@ h1 {
 .box_informations {
     display: grid;
     grid-template-columns: 0.7fr 1fr;
-    font-size: 1.2em;
 }
 
 .box_contact,
@@ -96,6 +101,7 @@ p,
 a {
     color: #2a8eff;
     text-decoration: none;
+    font-weight: bold;
 }
 
 a:focus-visible {
@@ -115,6 +121,7 @@ td {
 }
 
 th {
+    font-weight: bold;
     background-color: #ffd699;
 }
 
@@ -132,6 +139,7 @@ td {
 }
 
 .hours_informations_box {
+    margin: 1rem 0;
     text-align: center;
     color: #3186d6;
 }
@@ -139,6 +147,10 @@ td {
 .box_waste {
     display: flex;
     justify-content: space-evenly;
+}
+
+h3 {
+    font-size: 1.5em;
 }
 
 .box_waste_authorized,
