@@ -38,6 +38,17 @@ li {
     max-height: 600px;
 }
 
+.mapboxgl-popup-close-button {
+    background-color: #ea1221;
+    color: #fff;
+    border-radius: 2px;
+    padding: 0.2rem 0.5rem;
+}
+
+.mapboxgl-popup-close-button:hover {
+    background-color: #ff0011;
+}
+
 .mapboxgl-popup-content {
     box-shadow: 10px 10px 15px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
@@ -70,6 +81,19 @@ h1 {
 .box_description {
     padding: 1rem;
     margin: 0rem 0.5rem 1rem 1rem;
+    position: relative;
+}
+
+.box_description .icon_card {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.box_description .icon_money {
+    position: absolute;
+    top: 10px;
+    right: 55px;
 }
 
 .box_description h3 {
@@ -99,7 +123,6 @@ p,
 }
 
 a {
-    color: #2a8eff;
     text-decoration: none;
     font-weight: bold;
 }
@@ -108,10 +131,25 @@ a:focus-visible {
     outline: none;
 }
 
+.phone_number {
+    color: #ffbc2f;
+    display: flex;
+}
+
+.website_link {
+    color: #2a8eff;
+    display: flex;
+}
+
+.icon_new_window {
+    margin-left: 0.2rem;
+}
+
 table {
     border-collapse: collapse;
     text-align: center;
     width: 100%;
+    margin-bottom: 1rem;
 }
 
 th,
@@ -139,7 +177,6 @@ td {
 }
 
 .hours_informations_box {
-    margin: 1rem 0;
     text-align: center;
     color: #3186d6;
 }
@@ -147,6 +184,7 @@ td {
 .box_waste {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 1rem;
 }
 
 h3 {
@@ -158,6 +196,14 @@ h3 {
     width: 50%;
     text-align: center;
     color: white;
+    position: relative;
+}
+
+.box_waste_authorized .icon_check_ok,
+.box_waste_forbidden .icon_check_no {
+    position: absolute;
+    left: 20px;
+    top: 3px;
 }
 
 .box_waste_authorized ul,

@@ -6,7 +6,8 @@ const publicLandfill = [
         NAME: 'Déchèterie de Valréas',
         ADDRESS: "Chemin de l'Oulle",
         CITY: '84600 VALREAS',
-        PHONE: '04 90 35 01 52',
+        PHONE_DATA: 'tel:+334.90.35.01.52',
+        PHONE_CLIENT: '04.90.35.01.52',
         WEBSITE: 'http://cceppg.fr',
         DESCRIPTION:
             "Carte réalisable à la déchèterie directement. Prévoir un justificatif d'activité et un justificatif de siège social sur la communauté de communes Enclave des Papes-Pays de Grignan.",

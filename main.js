@@ -114,6 +114,35 @@ const renderIconPhone = node => {
     return node.appendChild(iconPhone)
 }
 
+// Phone call
+const renderIconPhoneCall = node => {
+    const iconPhoneCall = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'svg'
+    )
+    const iconPath_1 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+
+    iconPhoneCall.classList.add('icon_phone_call')
+    iconPhoneCall.setAttribute('viewBox', '-5 -5 25 25')
+    iconPhoneCall.setAttribute('height', '20')
+    iconPhoneCall.setAttribute('width', '20')
+    iconPhoneCall.setAttribute('stroke', '#FFBC2F')
+    iconPhoneCall.setAttribute('fill', '#FFBC2F')
+    iconPhoneCall.setAttribute('stroke-width', '1px')
+
+    iconPath_1.setAttribute(
+        'd',
+        'M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z'
+    )
+
+    iconPhoneCall.appendChild(iconPath_1)
+
+    return node.appendChild(iconPhoneCall)
+}
+
 // Website
 const renderIconWebsite = node => {
     const iconWebsite = document.createElementNS(
@@ -141,6 +170,41 @@ const renderIconWebsite = node => {
     iconWebsite.appendChild(iconPath_1)
 
     return node.appendChild(iconWebsite)
+}
+
+// New window
+const renderIconNewWindow = node => {
+    const iconNewWindow = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'svg'
+    )
+    const iconPath_1 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+    const iconPath_2 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+
+    iconNewWindow.classList.add('icon_new_window')
+    iconNewWindow.setAttribute('viewBox', '-1 -1 25 25')
+    iconNewWindow.setAttribute('height', '20')
+    iconNewWindow.setAttribute('width', '20')
+    iconNewWindow.setAttribute('stroke', '#7CBBFF')
+    iconNewWindow.setAttribute('fill', 'none')
+    iconNewWindow.setAttribute('stroke-width', '2px')
+
+    iconPath_1.setAttribute('d', 'M21 3L15 3M21 3L12 12M21 3V9')
+    iconPath_2.setAttribute(
+        'd',
+        'M21 13V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H11'
+    )
+
+    iconNewWindow.appendChild(iconPath_1)
+    iconNewWindow.appendChild(iconPath_2)
+
+    return node.appendChild(iconNewWindow)
 }
 
 // Card
@@ -172,7 +236,7 @@ const renderIconCard = node => {
     iconCard.setAttribute('width', '50')
     iconCard.setAttribute('stroke', '#c1bece')
     iconCard.setAttribute('fill', '#c1bece')
-    iconCard.setAttribute('stroke-width', '1.5px')
+    iconCard.setAttribute('stroke-width', '1px')
 
     iconPath_1.setAttribute(
         'd',
@@ -216,32 +280,144 @@ const renderIconMoney = node => {
         'http://www.w3.org/2000/svg',
         'path'
     )
+    const iconPath_4 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+    const iconPath_5 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+    const iconCircle = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'circle'
+    )
+    const iconPath_6 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+    const iconPath_7 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+    const iconPath_8 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
 
     iconMoney.classList.add('icon_money')
-    iconMoney.setAttribute('viewBox', '-3.5 -3.5 38 38')
-    iconMoney.setAttribute('height', '50')
+    iconMoney.setAttribute('viewBox', '20 -2 20 40')
+    iconMoney.setAttribute('height', '25')
     iconMoney.setAttribute('width', '50')
     iconMoney.setAttribute('stroke', '#c1bece')
-    iconMoney.setAttribute('stroke-width', '1.8px')
+    iconMoney.setAttribute('fill', 'none')
+    iconMoney.setAttribute('stroke-width', '3.5px')
 
     iconPath_1.setAttribute(
         'd',
-        'M39.82,9.81,35,8.69v-8A.69.69,0,0,0,34.27,0H.69A.69.69,0,0,0,0,.69v18a.69.69,0,0,0,.69.69H3.62v.08a.69.69,0,0,0,.08.52.74.74,0,0,0,.44.31l.36.08,31.29,7.2h.11a.69.69,0,0,0,.66-.52l3.13-13.56.66-2.9a.67.67,0,0,0-.08-.52A.7.7,0,0,0,39.82,9.81ZM35,14.9h0L35,15ZM22.15,20.32a5.14,5.14,0,0,0,2.75-.8l.15-.1h8.89l-.34,1.47-.31,0A3.79,3.79,0,0,0,30,22.8a4.45,4.45,0,0,0-.25.54l-17-3.92h6.55l.4.25.32.16a6,6,0,0,0,1,.36A5.2,5.2,0,0,0,22.15,20.32Zm-.81-.9H23A4.41,4.41,0,0,1,21.34,19.42ZM1.39,18V1.39H33.58V18Zm34,8.06-29-6.67h4.36a.32.32,0,0,0,.25.27L29.84,24h.08a.33.33,0,0,0,.31-.24,3.15,3.15,0,0,1,3-2.29,4,4,0,0,1,.6.05.32.32,0,0,0,.37-.24l.46-2,.14-.11a.69.69,0,0,0,.19-.48v-.86l.72-3.1a.33.33,0,0,0-.23-.39A2.88,2.88,0,0,1,35,14.2V10.11l3.88.89Z'
+        'M60,36c1.1,0,2-0.9,2-2V2,c0-1.1-0.9-2-2-2H2C0.9,0,0,0.9,0,2v32c0,1.1,0.9,2,2,2H60L60,36z'
     )
-    iconPath_2.setAttribute(
+    iconPath_2.setAttribute('d', 'M5,4h20.6')
+    iconPath_3.setAttribute('d', 'M5,32h20.6')
+    iconPath_4.setAttribute('d', 'M36,4h21')
+    iconPath_5.setAttribute('d', 'M36,32h21')
+    iconCircle.setAttribute('cx', '31')
+    iconCircle.setAttribute('cy', '18')
+    iconCircle.setAttribute('r', '15')
+    iconPath_6.setAttribute(
         'd',
-        'M30.92,5.77a3.27,3.27,0,0,1-3.07-3.19.34.34,0,0,0-.34-.32h-20a.34.34,0,0,0-.34.32A3.29,3.29,0,0,1,4,5.77a.34.34,0,0,0-.32.34v7.2a.34.34,0,0,0,.32.34,3.29,3.29,0,0,1,3.08,3.19.34.34,0,0,0,.34.32H27.51a.34.34,0,0,0,.34-.32,3.27,3.27,0,0,1,3.07-3.19.34.34,0,0,0,.32-.34V6.11A.35.35,0,0,0,30.92,5.77ZM30.56,13a4,4,0,0,0-3.37,3.48H7.77A4,4,0,0,0,4.4,13V6.42A4,4,0,0,0,7.77,2.94H27.19a4,4,0,0,0,3.37,3.48Z'
+        'M37.9,25.4,C36.5,27,34.7,28,32.7,28c-4.3,0-7.7-4.5-7.7-10s3.5-10,7.7-10c2,0,3.7,0.9,5.1,2.5'
     )
-    iconPath_3.setAttribute(
-        'd',
-        'M17.65,4.14a5.49,5.49,0,0,0-5.4,5.57,5.49,5.49,0,0,0,5.4,5.57,5.5,5.5,0,0,0,5.41-5.57A5.5,5.5,0,0,0,17.65,4.14Zm0,10.27a4.63,4.63,0,0,1-4.54-4.7,4.55,4.55,0,1,1,9.09,0A4.63,4.63,0,0,1,17.65,14.41Z'
-    )
+    iconPath_7.setAttribute('d', 'M22,16h11.9')
+    iconPath_8.setAttribute('d', 'M22,16h11.9')
 
     iconMoney.appendChild(iconPath_1)
     iconMoney.appendChild(iconPath_2)
     iconMoney.appendChild(iconPath_3)
+    iconMoney.appendChild(iconPath_4)
+    iconMoney.appendChild(iconPath_5)
+    iconMoney.appendChild(iconCircle)
+    iconMoney.appendChild(iconPath_6)
+    iconMoney.appendChild(iconPath_7)
+    iconMoney.appendChild(iconPath_8)
 
     return node.appendChild(iconMoney)
+}
+
+// Check OK
+const renderIconCheckOk = node => {
+    const iconCheckOk = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'svg'
+    )
+    const iconPath_1 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+    const iconPath_2 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+
+    iconCheckOk.classList.add('icon_check_ok')
+    iconCheckOk.setAttribute('viewBox', '-80 -80 800 800')
+    iconCheckOk.setAttribute('height', '50')
+    iconCheckOk.setAttribute('width', '50')
+    iconCheckOk.setAttribute('stroke', '#33b082')
+    iconCheckOk.setAttribute('fill', '#33b082')
+    iconCheckOk.setAttribute('stroke-width', '1.5px')
+
+    iconPath_1.setAttribute(
+        'd',
+        'M623,82.91l-61.4-61.4a23.15,23.15,0,0,0-32.72,0L269.61,280.75l-59.94-59.93a23.13,23.13,0,0,0-32.72,0l-61.4,61.4a23.15,23.15,0,0,0,0,32.72L191,390.41c.26.29.53.57.8.84l61.41,61.41a23.14,23.14,0,0,0,32.71,0l337-337a23.13,23.13,0,0,0,0-32.72Z'
+    )
+    iconPath_2.setAttribute(
+        'd',
+        'M603.06,169.54l-46,46.05A258.33,258.33,0,1,1,430.29,86.07L476,40.32A320,320,0,1,0,615.53,195.65Q609.88,182.27,603.06,169.54Z'
+    )
+
+    iconCheckOk.appendChild(iconPath_1)
+    iconCheckOk.appendChild(iconPath_2)
+
+    return node.appendChild(iconCheckOk)
+}
+
+// Check No
+const renderIconCheckNo = node => {
+    const iconCheckNo = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'svg'
+    )
+    const iconPath_1 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+    const iconPath_2 = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'path'
+    )
+
+    iconCheckNo.classList.add('icon_check_no')
+    iconCheckNo.setAttribute('viewBox', '-80 -80 800 800')
+    iconCheckNo.setAttribute('height', '50')
+    iconCheckNo.setAttribute('width', '50')
+    iconCheckNo.setAttribute('stroke', '#ff0010')
+    iconCheckNo.setAttribute('fill', '#ff0010')
+    iconCheckNo.setAttribute('stroke-width', '1.5px')
+
+    iconPath_1.setAttribute(
+        'd',
+        'M626.94,99.27a23.14,23.14,0,0,0-6.77-16.36l-61.41-61.4a23.13,23.13,0,0,0-32.71,0L320,227.58l-98.49-98.49a23.15,23.15,0,0,0-32.72,0l-61.4,61.41a23.13,23.13,0,0,0,0,32.71l98.49,98.49-98.49,98.5a23.12,23.12,0,0,0,0,32.71l61.4,61.41a23.15,23.15,0,0,0,32.72,0L320,415.82l98.5,98.5a23.14,23.14,0,0,0,32.71,0l61.41-61.41a23.13,23.13,0,0,0,0-32.71l-98.5-98.5L620.17,115.63A23.12,23.12,0,0,0,626.94,99.27Z'
+    )
+    iconPath_2.setAttribute(
+        'd',
+        'M602.09,167.71l-46,46A258.33,258.33,0,1,1,428.37,85.19l45.87-45.88a322.65,322.65,0,0,0-29.17-14.12A320.36,320.36,0,0,0,93.83,546.89a320.43,320.43,0,0,0,521.7-351.24Q609.47,181.31,602.09,167.71Z'
+    )
+
+    iconCheckNo.appendChild(iconPath_1)
+    iconCheckNo.appendChild(iconPath_2)
+
+    return node.appendChild(iconCheckNo)
 }
 
 // Create the markers and the popups
@@ -299,17 +475,23 @@ publicLandfill.forEach(landfill => {
     addressBox.appendChild(addressTextBox)
 
     // Create a paragraph for the landfill phone number
-    if (landfill.PHONE != null) {
-        const phone = document.createElement('p')
-        phone.textContent = landfill.PHONE
+    if (landfill.PHONE_DATA != null) {
+        const phone = document.createElement('a')
+        phone.className = 'phone_number'
+        phone.href = landfill.PHONE_DATA
+        phone.textContent = landfill.PHONE_CLIENT
+        renderIconPhoneCall(phone)
         phoneBox.appendChild(phone)
     }
 
     // Create a link for the landfill website
     if (landfill.WEBSITE != null) {
         const website = document.createElement('a')
+        website.className = 'website_link'
         website.href = landfill.WEBSITE
+        website.setAttribute('target', '_blank')
         website.textContent = 'Site web'
+        renderIconNewWindow(website)
         websiteBox.appendChild(website)
     }
     contactBox.appendChild(addressBox)
@@ -404,6 +586,7 @@ publicLandfill.forEach(landfill => {
         const authorizedWasteTitle = document.createElement('h3')
         authorizedWasteTitle.textContent = 'Déchets autorisés'
         const authorizedWasteList = document.createElement('ul')
+        renderIconCheckOk(authorizedWasteBox)
 
         landfill.AUTHORIZED_WASTE.forEach(authorizedWaste => {
             const authorizedWasteItem = document.createElement('li')
@@ -421,6 +604,7 @@ publicLandfill.forEach(landfill => {
         const forbiddenWasteTitle = document.createElement('h3')
         forbiddenWasteTitle.textContent = 'Déchets refusés'
         const forbiddenWasteList = document.createElement('ul')
+        renderIconCheckNo(forbiddenWasteBox)
 
         landfill.FORBIDDEN_WASTE.forEach(forbiddenWaste => {
             const forbiddenWasteItem = document.createElement('li')
